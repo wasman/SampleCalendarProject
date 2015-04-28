@@ -1,6 +1,6 @@
 package com.diosoft.sample.calendar;
 
-import org.springframework.context.ApplicationContext;
+import com.diosoft.sample.calendar.service.CalendarServiceImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.rmi.RemoteException;
@@ -12,7 +12,9 @@ public class Main {
 
     public static void main(String[] args) throws RemoteException {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CalendarServiceImpl calendarService = context.getBean("calendarService", CalendarServiceImpl.class);
+        calendarService.getEvent("Name");
         logger.info("Service started");
 
 

@@ -13,6 +13,7 @@ public class CalendarDataStoreImpl implements CalendarDataStore {
 
     private final Map<String, Event> store = new HashMap<>();
 
+    public void init(){}
     @Override
     public void publish(Event event) {
         store.put(event.getName(), event);
